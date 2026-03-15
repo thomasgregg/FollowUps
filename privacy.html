@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FollowUps Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #14171f;
+      --muted: #5c6473;
+      --border: #dfe5f0;
+      --accent: #1683f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #f7f9fd 0%, #edf2fb 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 18px 50px rgba(30, 53, 107, 0.08);
+    }
+
+    h1, h2 {
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 32px;
+    }
+
+    p, li {
+      font-size: 1.05rem;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #f2f8ff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 24px 20px;
+        border-radius: 22px;
+      }
+
+      main {
+        padding: 24px 14px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <div class="eyebrow">FollowUps</div>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Effective date: March 16, 2026</p>
+
+      <p>
+        FollowUps helps you record a conversation, turn it into follow-up tasks, and optionally
+        create Apple Reminders from those tasks. This policy explains what data the app handles and
+        how it is used.
+      </p>
+
+      <h2>How FollowUps works</h2>
+      <ul>
+        <li>FollowUps records audio only after you explicitly start recording.</li>
+        <li>When you stop recording, the app sends the saved audio to OpenAI for transcription and task extraction.</li>
+        <li>The app stores sessions, transcripts, tasks, and recordings locally on your device unless you delete them.</li>
+        <li>Apple Reminders are created only when you explicitly choose selected tasks and confirm.</li>
+      </ul>
+
+      <h2>Data we handle</h2>
+      <ul>
+        <li><strong>Audio recordings</strong> you choose to capture.</li>
+        <li><strong>Transcript and task content</strong> generated from that recording.</li>
+        <li><strong>Reminder data</strong> only when you choose to create Apple Reminders.</li>
+      </ul>
+
+      <h2>How we use data</h2>
+      <ul>
+        <li>To transcribe recorded audio.</li>
+        <li>To generate follow-up tasks and a short session headline.</li>
+        <li>To let you review, edit, save, and optionally export tasks to Apple Reminders.</li>
+        <li>To store sessions locally so you can revisit them later.</li>
+      </ul>
+
+      <h2>Third-party processing</h2>
+      <p>
+        After recording stops, FollowUps sends the recorded audio and related transcript content to
+        OpenAI so OpenAI can transcribe the conversation and extract tasks. OpenAI processes this
+        data according to its own policies. You can review OpenAI's privacy information at
+        <a href="https://openai.com/policies/privacy-policy/">openai.com/policies/privacy-policy</a>.
+      </p>
+
+      <h2>Data sharing</h2>
+      <p>
+        FollowUps does not sell your data and does not use your data for advertising or tracking.
+        Data is shared with OpenAI only to provide transcription and task extraction, and with
+        Apple Reminders only when you choose to create reminders.
+      </p>
+
+      <h2>Storage and deletion</h2>
+      <ul>
+        <li>Sessions and recordings are stored locally on your device.</li>
+        <li>You can delete individual sessions, which also deletes the associated recording.</li>
+        <li>You can delete all sessions from within the app.</li>
+        <li>You can optionally enable automatic cleanup for older sessions in Settings.</li>
+      </ul>
+
+      <h2>Permissions</h2>
+      <ul>
+        <li><strong>Microphone</strong>: required to record audio.</li>
+        <li><strong>Reminders</strong>: required only if you choose to create Apple Reminders.</li>
+        <li><strong>Notifications</strong>: optional, used to notify you when processing finishes in the background.</li>
+      </ul>
+
+      <h2>Children's privacy</h2>
+      <p>
+        FollowUps is not directed to children and does not knowingly collect personal data from
+        children.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. Updated versions will be posted at this page.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions about FollowUps, please use the project contact channel at
+        <a href="https://github.com/thomasgregg/FollowUps/issues">github.com/thomasgregg/FollowUps/issues</a>.
+      </p>
+
+      <div class="note">
+        FollowUps does not monitor or intercept phone calls or audio from other apps. Recording
+        happens only when you explicitly start it.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
