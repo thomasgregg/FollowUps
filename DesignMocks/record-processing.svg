@@ -1,0 +1,40 @@
+<svg width="430" height="932" viewBox="0 0 430 932" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="430" height="932" rx="48" fill="#F5F6FA"/>
+  <rect x="163" y="12" width="104" height="32" rx="16" fill="#0E0E11"/>
+  <text x="40" y="88" fill="#101114" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="22" font-weight="700">21:55</text>
+
+  <text x="32" y="220" fill="#0F1014" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="58" font-weight="700">Record</text>
+
+  <rect x="28" y="286" width="374" height="330" rx="30" fill="white"/>
+  <text x="52" y="344" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="32" font-weight="600">Working on it</text>
+  <text x="52" y="382" fill="#6D7380" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="22">Creating tasks from your recording</text>
+
+  <rect x="52" y="420" width="326" height="12" rx="6" fill="#E7EDF7"/>
+  <rect x="52" y="420" width="214" height="12" rx="6" fill="#0A84FF"/>
+
+  <circle cx="60" cy="472" r="12" fill="#34C759"/>
+  <path d="M54 472L58 476L67 467" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="84" y="480" fill="#14171C" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="24">Saved recording</text>
+
+  <circle cx="60" cy="518" r="12" fill="#34C759"/>
+  <path d="M54 518L58 522L67 513" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="84" y="526" fill="#14171C" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="24">Transcribed audio</text>
+
+  <circle cx="60" cy="564" r="12" fill="#0A84FF"/>
+  <circle cx="60" cy="564" r="5" fill="white"/>
+  <text x="84" y="572" fill="#14171C" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="24">Extracting tasks</text>
+
+  <circle cx="60" cy="610" r="12" fill="#D3D7E2"/>
+  <text x="84" y="618" fill="#8A91A0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="24">Saving session</text>
+
+  <text x="52" y="676" fill="#8A91A0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">This can take a short moment.</text>
+
+  <rect x="87" y="848" width="256" height="66" rx="33" fill="rgba(255,255,255,0.92)"/>
+  <rect x="96" y="855" width="92" height="52" rx="26" fill="#E9EBF1"/>
+  <circle cx="141" cy="874" r="14" fill="#0A84FF"/>
+  <text x="120" y="902" fill="#0A84FF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="600">Record</text>
+  <text x="228" y="880" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28">≣</text>
+  <text x="206" y="902" fill="#1C1F25" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="500">Sessions</text>
+  <text x="326" y="880" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28">⚙</text>
+  <text x="309" y="902" fill="#1C1F25" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="500">Settings</text>
+</svg>

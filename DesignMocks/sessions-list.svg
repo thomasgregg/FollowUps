@@ -1,0 +1,36 @@
+<svg width="430" height="932" viewBox="0 0 430 932" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="430" height="932" rx="48" fill="#F5F6FA"/>
+  <rect x="163" y="12" width="104" height="32" rx="16" fill="#0E0E11"/>
+  <text x="40" y="88" fill="#101114" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="22" font-weight="700">21:55</text>
+
+  <text x="32" y="220" fill="#0F1014" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="58" font-weight="700">Sessions</text>
+  <text x="352" y="220" fill="#0A84FF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="22" font-weight="600">Edit</text>
+
+  <text x="32" y="282" fill="#8C92A0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="22" font-weight="600">Today</text>
+
+  <rect x="28" y="304" width="374" height="118" rx="26" fill="white"/>
+  <text x="52" y="352" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="30" font-weight="600">Billy Idol tickets</text>
+  <text x="52" y="389" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">22:14 • 2 min</text>
+  <text x="52" y="416" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">3 tasks • 1 reminder</text>
+
+  <text x="32" y="482" fill="#8C92A0" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="22" font-weight="600">Yesterday</text>
+
+  <rect x="28" y="504" width="374" height="118" rx="26" fill="white"/>
+  <text x="52" y="552" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="30" font-weight="600">Restaurant in Rome</text>
+  <text x="52" y="589" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">16:40 • 4 min</text>
+  <text x="52" y="616" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">2 tasks</text>
+
+  <rect x="28" y="642" width="374" height="118" rx="26" fill="white"/>
+  <text x="52" y="690" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="30" font-weight="600">Proposal follow-up</text>
+  <text x="52" y="727" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">10:15 • 7 min</text>
+  <text x="52" y="754" fill="#7A808E" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="21">5 tasks • 3 reminders</text>
+
+  <rect x="87" y="848" width="256" height="66" rx="33" fill="rgba(255,255,255,0.92)"/>
+  <text x="132" y="880" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28">•</text>
+  <text x="120" y="902" fill="#1C1F25" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="500">Record</text>
+  <rect x="174" y="855" width="92" height="52" rx="26" fill="#E9EBF1"/>
+  <text x="219" y="880" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28">≣</text>
+  <text x="198" y="902" fill="#0A84FF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="600">Sessions</text>
+  <text x="326" y="880" fill="#111318" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="28">⚙</text>
+  <text x="309" y="902" fill="#1C1F25" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="15" font-weight="500">Settings</text>
+</svg>
