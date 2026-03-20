@@ -1,6 +1,26 @@
 import AVFoundation
 import SwiftUI
 
+private enum SessionColors {
+    static let pageBackground = Color(.systemGroupedBackground)
+
+    static let cardFill = Color(
+        uiColor: UIColor { traits in
+            traits.userInterfaceStyle == .dark
+                ? UIColor.secondarySystemBackground
+                : UIColor.systemBackground
+        }
+    )
+
+    static let utilityFill = Color(
+        uiColor: UIColor { traits in
+            traits.userInterfaceStyle == .dark
+                ? UIColor.tertiarySystemBackground
+                : UIColor.secondarySystemBackground
+        }
+    )
+}
+
 struct SessionsListView: View {
     @EnvironmentObject private var appViewModel: AppViewModel
     @State private var sessionPendingDeletion: CallSession?
@@ -12,7 +32,7 @@ struct SessionsListView: View {
 
     private var sessionCardBackground: some View {
         RoundedRectangle(cornerRadius: 22, style: .continuous)
-            .fill(Color(.systemBackground))
+            .fill(SessionColors.cardFill)
             .overlay(
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .stroke(Color(.separator).opacity(0.18), lineWidth: 1)
@@ -79,7 +99,7 @@ struct SessionsListView: View {
             }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
-            .background(Color(.systemGroupedBackground))
+            .background(SessionColors.pageBackground)
             .overlay {
                 if appViewModel.sessions.isEmpty {
                     ContentUnavailableView("No Sessions Yet", systemImage: "mic.slash", description: Text("Start a recording from the Record tab, a widget, or an App Shortcut."))
@@ -155,7 +175,7 @@ struct SessionsListView: View {
                 Text("This deletes the selected sessions and their recordings.")
             }
         }
-        .background(Color(.systemGroupedBackground))
+        .background(SessionColors.pageBackground)
     }
 
     private var groupedSessions: [SessionGroup] {
@@ -306,13 +326,13 @@ struct SessionDetailView: View {
                         .padding(.top, 10)
                     }
                     .padding(20)
-                    .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+                    .background(SessionColors.utilityFill, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
                 }
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 20)
         }
-        .background(Color(.systemGroupedBackground))
+        .background(SessionColors.pageBackground)
         .navigationTitle("Session")
         .navigationBarTitleDisplayMode(.inline)
         .onDisappear {
@@ -594,7 +614,7 @@ private struct TaskCard: View {
             }
         }
         .padding(22)
-        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .background(SessionColors.cardFill, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(Color(.separator).opacity(0.4), lineWidth: 1)
@@ -651,7 +671,7 @@ private struct AudioPlaybackCard: View {
             Spacer()
         }
         .padding(20)
-        .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(SessionColors.utilityFill, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .stroke(Color(.separator).opacity(0.18), lineWidth: 1)
@@ -727,7 +747,7 @@ private struct ConversationCard: View {
             }
         }
         .padding(16)
-        .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(SessionColors.utilityFill, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .stroke(Color(.separator).opacity(0.18), lineWidth: 1)
@@ -783,7 +803,7 @@ private final class SessionAudioPlayer: NSObject, ObservableObject, AVAudioPlaye
 
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .default, options: [.defaultToSpeaker])
+            try session.setCategory(.playback, mode: .default)
             try session.setActive(true)
 
             let player = try AVAudioPlayer(contentsOf: url)
@@ -800,7 +820,11 @@ private final class SessionAudioPlayer: NSObject, ObservableObject, AVAudioPlaye
             isPlaying = true
         } catch {
             stop()
-            throw error
+            throw NSError(
+                domain: "CallNotes.AudioPlayback",
+                code: 3,
+                userInfo: [NSLocalizedDescriptionKey: "FollowUps could not play this recording."]
+            )
         }
     }
 

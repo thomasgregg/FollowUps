@@ -132,6 +132,7 @@ protocol ReminderServicing {
     func sync(actionItems: [ActionItem]) async throws -> ReminderSyncResult
 }
 
+@MainActor
 protocol BackgroundTaskServicing {
     func register()
     func schedulePostProcessing()

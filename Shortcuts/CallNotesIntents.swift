@@ -1,38 +1,42 @@
 import AppIntents
 import Foundation
 
-struct StartCallNotesIntent: AppIntent {
+struct StartFollowUpsIntent: AppIntent {
     static let title: LocalizedStringResource = "Start FollowUps"
     static let description = IntentDescription("Open FollowUps and start a recording session.")
 
     func perform() async throws -> some IntentResult {
-        .result(opensIntent: OpenURLIntent(URL(string: "callnotes://record/start")!))
+        .result(opensIntent: OpenURLIntent(URL(string: "followups://record/start")!))
     }
 }
 
-struct StopCallNotesIntent: AppIntent {
+struct StopFollowUpsIntent: AppIntent {
     static let title: LocalizedStringResource = "Stop FollowUps"
     static let description = IntentDescription("Open FollowUps and stop the active recording session.")
 
     func perform() async throws -> some IntentResult {
-        .result(opensIntent: OpenURLIntent(URL(string: "callnotes://record/stop")!))
+        .result(opensIntent: OpenURLIntent(URL(string: "followups://record/stop")!))
     }
 }
 
-struct CallNotesShortcuts: AppShortcutsProvider {
+struct FollowUpsShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
-            intent: StartCallNotesIntent(),
+            intent: StartFollowUpsIntent(),
             phrases: [
                 "Start FollowUps in \(.applicationName)",
                 "Start recording in \(.applicationName)"
-            ]
+            ],
+            shortTitle: "Start Recording",
+            systemImageName: "mic.fill"
         )
         AppShortcut(
-            intent: StopCallNotesIntent(),
+            intent: StopFollowUpsIntent(),
             phrases: [
                 "Stop FollowUps in \(.applicationName)"
-            ]
+            ],
+            shortTitle: "Stop Recording",
+            systemImageName: "stop.fill"
         )
     }
 }

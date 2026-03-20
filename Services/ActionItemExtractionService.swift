@@ -26,10 +26,18 @@ final class ActionItemExtractionService: ActionItemExtracting {
             case let .apiError(message):
                 throw NSError(domain: "CallNotes.OpenAI", code: 2, userInfo: [NSLocalizedDescriptionKey: message])
             default:
-                throw ActionItemExtractionError.invalidResponse
+                throw NSError(
+                    domain: "CallNotes.OpenAI",
+                    code: 4,
+                    userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]
+                )
             }
         } catch {
-            throw ActionItemExtractionError.invalidResponse
+            throw NSError(
+                domain: "CallNotes.OpenAI",
+                code: 3,
+                userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]
+            )
         }
     }
 }

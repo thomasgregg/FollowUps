@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 @MainActor
-final class RecordingViewModel: ObservableObject {
+final class RecordingViewModel: NSObject, ObservableObject {
     @Published private(set) var state: RecordingState = .idle
     @Published private(set) var permissionState: PermissionState = .unknown
     @Published private(set) var elapsedTime: TimeInterval = 0
@@ -41,6 +41,7 @@ final class RecordingViewModel: ObservableObject {
         self.persistenceService = persistenceService
         self.backgroundTaskService = backgroundTaskService
         self.completionNotificationService = completionNotificationService
+        super.init()
     }
 
     func bind(appViewModel: AppViewModel) {
@@ -72,15 +73,7 @@ final class RecordingViewModel: ObservableObject {
             }
 
             try await transcriptionService.startLiveTranscription(sessionID: session.id)
-            try await audioCaptureService.startRecording(sessionID: session.id) { [weak self] buffer, time in
-                Task {
-                    await self?.transcriptionService.appendAudioBuffer(buffer, when: time)
-                    await MainActor.run {
-                        self?.liveLevel = self?.audioCaptureService.currentLevel ?? 0
-                        self?.liveTranscriptSnippet = self?.transcriptionService.partialText ?? ""
-                    }
-                }
-            }
+            try await audioCaptureService.startRecording(sessionID: session.id) { _, _ in }
             state = .recording
             startTimer()
         } catch {
@@ -95,12 +88,10 @@ final class RecordingViewModel: ObservableObject {
         state = .stopping
         timer?.invalidate()
         backgroundProcessingToken = backgroundTaskService.beginProcessingWindow()
-        Task {
-            await completionNotificationService.requestAuthorizationIfNeeded()
-        }
+        await completionNotificationService.requestAuthorizationIfNeeded()
 
-        processingTask = Task { [weak self] in
-            await self?.runStopPipeline(session: session)
+        processingTask = Task { [self, session] in
+            await runStopPipeline(session: session)
         }
     }
 
@@ -242,15 +233,16 @@ final class RecordingViewModel: ObservableObject {
     private func startTimer() {
         elapsedTime = 0
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
-            guard let self else { return }
-            self.elapsedTime += 0.25
-            self.liveLevel = self.audioCaptureService.currentLevel
-            self.pushLevelSample(self.liveLevel)
-            self.liveTranscriptSnippet = self.transcriptionService.partialText.isEmpty
-                ? "Recording now. OpenAI will transcribe and extract tasks after you stop."
-                : self.transcriptionService.partialText
-        }
+        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
+    }
+
+    @objc private func handleTimerTick() {
+        elapsedTime += 0.25
+        liveLevel = audioCaptureService.currentLevel
+        pushLevelSample(liveLevel)
+        liveTranscriptSnippet = transcriptionService.partialText.isEmpty
+            ? "Recording now. OpenAI will transcribe and extract tasks after you stop."
+            : transcriptionService.partialText
     }
 
     private func pushLevelSample(_ level: Double) {

@@ -216,21 +216,16 @@ final class OpenAIClient: OpenAIClienting {
 
         let (data, response) = try await session.data(for: request)
         try validate(response: response, data: data)
-        let decoded: ChatCompletionsResponse
-        do {
-            decoded = try JSONDecoder().decode(ChatCompletionsResponse.self, from: data)
-        } catch {
-            throw OpenAIClientError.apiError(
-                "OpenAI task extraction returned unreadable JSON. Preview: \(Self.preview(data: data))"
-            )
-        }
+        let assistantMessage = try parseAssistantMessagePayload(from: data)
 
-        if let refusal = decoded.choices.first?.message.refusal, !refusal.isEmpty {
+        if let refusal = assistantMessage.refusal, !refusal.isEmpty {
             throw OpenAIClientError.apiError(refusal)
         }
 
-        guard let content = decoded.choices.first?.message.content else {
-            throw ActionItemExtractionError.invalidResponse
+        guard let content = assistantMessage.content, !content.isEmpty else {
+            throw OpenAIClientError.apiError(
+                "OpenAI task extraction returned empty content. Preview: \(Self.preview(data: data))"
+            )
         }
 
         let extracted = try decodeActionItems(from: content)
@@ -262,8 +257,11 @@ final class OpenAIClient: OpenAIClienting {
 
     private func decodeActionItems(from content: String) throws -> ActionItemsEnvelope {
         let cleanedContent = Self.cleanJSONContent(content)
+        let candidates = Self.jsonDecodeCandidates(from: cleanedContent)
 
-        if let data = cleanedContent.data(using: .utf8) {
+        for candidate in candidates {
+            guard let data = candidate.data(using: .utf8) else { continue }
+
             if let envelope = try? JSONDecoder().decode(ActionItemsEnvelope.self, from: data) {
                 return envelope
             }
@@ -271,10 +269,41 @@ final class OpenAIClient: OpenAIClienting {
             if let array = try? JSONDecoder().decode([ActionItemsEnvelope.Item].self, from: data) {
                 return ActionItemsEnvelope(headline: nil, items: array)
             }
+
+            if
+                let object = try? JSONSerialization.jsonObject(with: data),
+                let envelope = Self.actionItemsEnvelope(from: object)
+            {
+                return envelope
+            }
         }
 
         throw OpenAIClientError.apiError(
             "OpenAI task extraction returned unusable content. Preview: \(Self.preview(text: cleanedContent))"
+        )
+    }
+
+    private func parseAssistantMessagePayload(from data: Data) throws -> AssistantMessagePayload {
+        guard
+            let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+            let choices = root["choices"] as? [[String: Any]],
+            let choice = choices.first
+        else {
+            throw OpenAIClientError.apiError(
+                "OpenAI task extraction returned unreadable JSON. Preview: \(Self.preview(data: data))"
+            )
+        }
+
+        let message = choice["message"] as? [String: Any]
+        let refusal = Self.extractText(from: message?["refusal"])
+        let content =
+            Self.extractText(from: message?["content"])
+            ?? Self.extractToolArguments(from: message?["tool_calls"])
+            ?? Self.extractText(from: choice["text"])
+
+        return AssistantMessagePayload(
+            content: content?.trimmingCharacters(in: .whitespacesAndNewlines),
+            refusal: refusal?.trimmingCharacters(in: .whitespacesAndNewlines)
         )
     }
 
@@ -375,6 +404,169 @@ final class OpenAIClient: OpenAIClienting {
         return stripped.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
+    private static func jsonDecodeCandidates(from text: String) -> [String] {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return [] }
+
+        var candidates: [String] = [trimmed]
+
+        if
+            let objectStart = trimmed.firstIndex(of: "{"),
+            let objectEnd = trimmed.lastIndex(of: "}")
+        {
+            let objectCandidate = String(trimmed[objectStart...objectEnd])
+            if !objectCandidate.isEmpty, objectCandidate != trimmed {
+                candidates.append(objectCandidate)
+            }
+        }
+
+        if
+            let arrayStart = trimmed.firstIndex(of: "["),
+            let arrayEnd = trimmed.lastIndex(of: "]")
+        {
+            let arrayCandidate = String(trimmed[arrayStart...arrayEnd])
+            if !arrayCandidate.isEmpty, !candidates.contains(arrayCandidate) {
+                candidates.append(arrayCandidate)
+            }
+        }
+
+        return candidates
+    }
+
+    private static func actionItemsEnvelope(from object: Any) -> ActionItemsEnvelope? {
+        if let itemArray = object as? [[String: Any]] {
+            let items = itemArray.compactMap(actionItem(from:))
+            return ActionItemsEnvelope(headline: nil, items: items)
+        }
+
+        guard let dict = object as? [String: Any] else { return nil }
+
+        let itemsRaw =
+            (dict["items"] as? [[String: Any]])
+            ?? (dict["tasks"] as? [[String: Any]])
+            ?? (dict["actionItems"] as? [[String: Any]])
+            ?? (dict["action_items"] as? [[String: Any]])
+            ?? []
+
+        let headline =
+            nonEmptyString(dict["headline"])
+            ?? nonEmptyString(dict["sessionHeadline"])
+            ?? nonEmptyString(dict["session_headline"])
+            ?? nonEmptyString(dict["title"])
+
+        let items = itemsRaw.compactMap(actionItem(from:))
+        return ActionItemsEnvelope(headline: headline, items: items)
+    }
+
+    private static func actionItem(from dict: [String: Any]) -> ActionItemsEnvelope.Item? {
+        guard
+            let title =
+                nonEmptyString(dict["title"])
+                ?? nonEmptyString(dict["task"])
+                ?? nonEmptyString(dict["name"])
+                ?? nonEmptyString(dict["action"])
+        else {
+            return nil
+        }
+
+        let details = nonEmptyString(dict["details"]) ?? nonEmptyString(dict["detail"])
+        let owner = nonEmptyString(dict["owner"]) ?? nonEmptyString(dict["assignee"])
+        let dueDate =
+            nonEmptyString(dict["dueDateISO8601"])
+            ?? nonEmptyString(dict["dueDate"])
+            ?? nonEmptyString(dict["due_date"])
+        let sourceQuote =
+            nonEmptyString(dict["sourceQuote"])
+            ?? nonEmptyString(dict["source_quote"])
+            ?? nonEmptyString(dict["quote"])
+            ?? nonEmptyString(dict["evidence"])
+
+        let confidence =
+            parseDouble(dict["confidence"])
+            ?? parseDouble(dict["score"])
+            ?? 0.75
+
+        return ActionItemsEnvelope.Item(
+            title: title,
+            details: details,
+            owner: owner,
+            dueDateISO8601: dueDate,
+            sourceQuote: sourceQuote,
+            confidence: confidence
+        )
+    }
+
+    private static func nonEmptyString(_ value: Any?) -> String? {
+        guard let value else { return nil }
+        if let string = value as? String {
+            let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmed.isEmpty ? nil : trimmed
+        }
+        return nil
+    }
+
+    private static func parseDouble(_ value: Any?) -> Double? {
+        if let number = value as? NSNumber {
+            return number.doubleValue
+        }
+        if let string = value as? String {
+            let normalized = string
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .replacingOccurrences(of: ",", with: ".")
+            return Double(normalized)
+        }
+        return nil
+    }
+
+    private static func extractText(from raw: Any?) -> String? {
+        guard let raw else { return nil }
+
+        if let string = raw as? String {
+            let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmed.isEmpty ? nil : trimmed
+        }
+
+        if let dict = raw as? [String: Any] {
+            return extractText(from: dict["text"])
+                ?? extractText(from: dict["value"])
+                ?? extractText(from: dict["content"])
+                ?? extractText(from: dict["refusal"])
+        }
+
+        if let array = raw as? [Any] {
+            let pieces = array.compactMap { item -> String? in
+                if let itemDict = item as? [String: Any] {
+                    return extractText(from: itemDict["text"])
+                        ?? extractText(from: itemDict["value"])
+                        ?? extractText(from: itemDict["content"])
+                        ?? extractText(from: itemDict["refusal"])
+                }
+                return extractText(from: item)
+            }
+
+            let joined = pieces.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+            return joined.isEmpty ? nil : joined
+        }
+
+        return nil
+    }
+
+    private static func extractToolArguments(from raw: Any?) -> String? {
+        guard let calls = raw as? [[String: Any]] else { return nil }
+        for call in calls {
+            if
+                let function = call["function"] as? [String: Any],
+                let arguments = function["arguments"] as? String
+            {
+                let trimmed = arguments.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !trimmed.isEmpty {
+                    return trimmed
+                }
+            }
+        }
+        return nil
+    }
+
     private static func preview(data: Data) -> String {
         preview(text: String(data: data, encoding: .utf8) ?? "<non-UTF8 response>")
     }
@@ -417,6 +609,11 @@ final class OpenAIClient: OpenAIClienting {
 private struct AudioTranscriptionResponse: Decodable {
     let text: String
     let language: String?
+}
+
+private struct AssistantMessagePayload {
+    let content: String?
+    let refusal: String?
 }
 
 private struct OpenAIAPIErrorResponse: Decodable {

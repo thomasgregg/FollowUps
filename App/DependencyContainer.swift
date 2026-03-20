@@ -76,6 +76,7 @@ final class DependencyContainer: ObservableObject {
     func handle(url: URL) async {
         switch url.host {
         case "record":
+            appViewModel.selectedTab = .record
             switch url.path {
             case "/start":
                 await recordingViewModel.startRecording()

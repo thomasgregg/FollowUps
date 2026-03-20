@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CallNotesApp: App {
+struct FollowUpsApp: App {
     @StateObject private var container = DependencyContainer.bootstrap()
     @Environment(\.scenePhase) private var scenePhase
 

@@ -4,7 +4,7 @@ import UIKit
 
 @MainActor
 final class BackgroundTaskService: BackgroundTaskServicing {
-    private let processingIdentifier = "com.thomasgregg.CallNotes.postprocess"
+    private let processingIdentifier = "com.thomasgregg.FollowUps.postprocess"
     private var activeTokens: [UUID: UIBackgroundTaskIdentifier] = [:]
 
     func register() {
@@ -25,7 +25,7 @@ final class BackgroundTaskService: BackgroundTaskServicing {
 
     func beginProcessingWindow() -> ProcessingBackgroundToken? {
         let token = ProcessingBackgroundToken(id: UUID())
-        let taskID = UIApplication.shared.beginBackgroundTask(withName: "CallNotesProcessing") { [weak self] in
+        let taskID = UIApplication.shared.beginBackgroundTask(withName: "FollowUpsProcessing") { [weak self] in
             Task { @MainActor in
                 self?.endProcessingWindow(token)
             }

@@ -1,11 +1,11 @@
-name: CallNotes
+name: FollowUps
 options:
   deploymentTarget:
     iOS: "18.0"
   createIntermediateGroups: true
 settings:
   base:
-    PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.CallNotes
+    PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.FollowUps
     DEVELOPMENT_TEAM: ""
     SWIFT_VERSION: 5.10
     GENERATE_INFOPLIST_FILE: YES
@@ -14,7 +14,7 @@ settings:
     CURRENT_PROJECT_VERSION: 1
 packages: {}
 targets:
-  CallNotes:
+  FollowUps:
     type: application
     platform: iOS
     sources:
@@ -31,16 +31,16 @@ targets:
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
         INFOPLIST_KEY_UILaunchScreen_Generation: true
-        PRODUCT_NAME: CallNotes
-        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        PRODUCT_NAME: FollowUps
+        TARGETED_DEVICE_FAMILY: 1
     dependencies:
-      - target: CallNotesWidgetsExtension
+      - target: FollowUpsWidgetsExtension
     scheme:
       testTargets:
-        - CallNotesUnitTests
-        - CallNotesUITests
+        - FollowUpsUnitTests
+        - FollowUpsUITests
 
-  CallNotesWidgetsExtension:
+  FollowUpsWidgetsExtension:
     type: app-extension
     platform: iOS
     sources:
@@ -51,16 +51,17 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: Resources/CallNotesWidgets-Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.CallNotes.widgets
-        PRODUCT_NAME: CallNotesWidgets
+        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.FollowUps.widgets
+        PRODUCT_NAME: FollowUpsWidgets
         INFOPLIST_KEY_CFBundleDisplayName: FollowUps Widgets
+        TARGETED_DEVICE_FAMILY: 1
     dependencies:
       - sdk: ActivityKit.framework
       - sdk: WidgetKit.framework
       - sdk: SwiftUI.framework
       - sdk: AppIntents.framework
 
-  CallNotesUnitTests:
+  FollowUpsUnitTests:
     type: bundle.unit-test
     platform: iOS
     sources:
@@ -70,20 +71,22 @@ targets:
       - App/AppSettings.swift
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.CallNotes.tests
-        TEST_HOST: $(BUILT_PRODUCTS_DIR)/CallNotes.app/CallNotes
+        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.FollowUps.tests
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/FollowUps.app/FollowUps
         BUNDLE_LOADER: $(TEST_HOST)
+        TARGETED_DEVICE_FAMILY: 1
     dependencies:
-      - target: CallNotes
+      - target: FollowUps
 
-  CallNotesUITests:
+  FollowUpsUITests:
     type: bundle.ui-testing
     platform: iOS
     sources:
       - Tests/UI
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.CallNotes.uitests
-        TEST_TARGET_NAME: CallNotes
+        PRODUCT_BUNDLE_IDENTIFIER: com.thomasgregg.FollowUps.uitests
+        TEST_TARGET_NAME: FollowUps
+        TARGETED_DEVICE_FAMILY: 1
     dependencies:
-      - target: CallNotes
+      - target: FollowUps

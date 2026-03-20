@@ -20,7 +20,7 @@ struct RecordingLiveActivityWidget: Widget {
                 Text("\(context.state.elapsedSeconds / 60)m \(context.state.elapsedSeconds % 60)s")
                     .monospacedDigit()
                 HStack {
-                    Link("Stop", destination: URL(string: "callnotes://record/stop")!)
+                    Link("Stop", destination: URL(string: "followups://record/stop")!)
                 }
             }
             .padding()
@@ -31,7 +31,7 @@ struct RecordingLiveActivityWidget: Widget {
                     Text("Recording")
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Link("Stop", destination: URL(string: "callnotes://record/stop")!)
+                    Link("Stop", destination: URL(string: "followups://record/stop")!)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     Text(context.state.stateLabel)

@@ -19,7 +19,7 @@ struct QuickStartWidgetView: View {
     var entry: QuickStartEntry
 
     var body: some View {
-        Link(destination: URL(string: "callnotes://record/start")!) {
+        Link(destination: URL(string: "followups://record/start")!) {
             Group {
                 if family == .systemMedium {
                     HStack(spacing: 18) {
@@ -89,7 +89,7 @@ struct QuickStartWidget: Widget {
 }
 
 @main
-struct CallNotesWidgetsBundle: WidgetBundle {
+struct FollowUpsWidgetsBundle: WidgetBundle {
     var body: some Widget {
         QuickStartWidget()
         RecordingLiveActivityWidget()

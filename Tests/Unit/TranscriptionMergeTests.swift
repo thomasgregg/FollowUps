@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-@testable import CallNotes
+@testable import FollowUps
 
 final class TranscriptionMergeTests: XCTestCase {
     func testFinalizeTranscriptionReturnsSingleFinalSegment() async throws {

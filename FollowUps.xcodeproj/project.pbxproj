@@ -1,0 +1,888 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C80C30C51FEDB681F9297AD /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE95755DBBD8AFF986B942 /* RootTabView.swift */; };
+		0F39A66CAB778B45F2756179 /* ActionItemExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E301D4397E9B34CD06E7FB12 /* ActionItemExtractionService.swift */; };
+		13129D321E136C0313FA1C70 /* CompletionNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA7599ABB04522D5CAC5710 /* CompletionNotificationService.swift */; };
+		13E7FEC34BDEEF46F0AA09D4 /* SessionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A11A28F05C369F2F077A0 /* SessionsListView.swift */; };
+		16235EEE385806F4E29E4F2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F21DF1CB8E7624F0DF86CA /* SettingsView.swift */; };
+		1F78E247955F276064F64F4A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D75C66DA5F9DCFE164F58E /* AppViewModel.swift */; };
+		2F57DF13701132F443B6E2DA /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938EBAADCF6EB58958C6FD67 /* TranscriptionService.swift */; };
+		3B473A36F0B7DC3AF92B4951 /* BackgroundTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D862B2BF4488B56B03F2432 /* BackgroundTaskService.swift */; };
+		3C1B9A9AF6243AFD82326EC1 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B21152CD03C8D045280C282 /* PersistenceService.swift */; };
+		42E974679DDFBCE62FF0EDD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7546A2C18F6FF67006A5B937 /* Assets.xcassets */; };
+		462FE4E886590CAA0F537E05 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB68BB3FC256195896BCAB /* AudioCaptureService.swift */; };
+		4E3FF17F884E164EDE3E705E /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790E2A3A29F77D1EAB8687E /* DependencyContainer.swift */; };
+		51D9F4BC8478D0C68468A34A /* FollowUpsWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E7DAFA83D0818EC8F2644446 /* FollowUpsWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5A02BEED583FFF6708085E27 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB68BB3FC256195896BCAB /* AudioCaptureService.swift */; };
+		6396BC4942F40141D71AF00C /* CallModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF54D6D94C1F6622A351953 /* CallModels.swift */; };
+		63B560840012B598BDAD3FF9 /* CallNotesIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5FBF203C15A924C8C43961 /* CallNotesIntents.swift */; };
+		6C30E960C11A0E9EEF21A4ED /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892801F26117CFC4573C8CF1 /* AppSettings.swift */; };
+		734A26F35136A1231F031829 /* CallNotesIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5FBF203C15A924C8C43961 /* CallNotesIntents.swift */; };
+		7E7242FF0890F5BECF7C914C /* CallModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF54D6D94C1F6622A351953 /* CallModels.swift */; };
+		82DACD7FC84A8F1E3181E7BE /* CompletionNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA7599ABB04522D5CAC5710 /* CompletionNotificationService.swift */; };
+		8403CA2190E89383890BD4FF /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938EBAADCF6EB58958C6FD67 /* TranscriptionService.swift */; };
+		89E297D2AAC056DA6399F2C3 /* RecordHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C72FB68853A6900324F17C /* RecordHomeView.swift */; };
+		8E1F3BAF3821433040CFD7B2 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00B829143849C09C3DC827 /* ReminderService.swift */; };
+		91301E9ECE2452A680486744 /* SummaryReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8890F32A3CEEF2065D4D87C /* SummaryReviewView.swift */; };
+		930A93B0988E0BB064A450F5 /* BackgroundTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D862B2BF4488B56B03F2432 /* BackgroundTaskService.swift */; };
+		95D0A0851DFA213BEAD2D772 /* TranscriptionMergeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDEBBBBD83D22BF6D5EBE1 /* TranscriptionMergeTests.swift */; };
+		96ED43BDFBE6D33ADF7363BF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D425634517978CA6286DDF77 /* WidgetKit.framework */; };
+		9E18A16779CFB4EEFA42A2CC /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD57FE611B1380A4F4E338 /* ServiceProtocols.swift */; };
+		A5F5CF3B751311F4D237CC74 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646770497CEDF4DF7DA5273 /* TestSupport.swift */; };
+		AD840A1B08F40EB2D2521021 /* RecordingLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EB7A3D61D27CB89CDB05B /* RecordingLiveActivity.swift */; };
+		B20C1F23ACC4DCE7B8C3FDCE /* ActionItemExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B517317EFC6151DE9196365 /* ActionItemExtractionServiceTests.swift */; };
+		B225B45A8EE9742D68C44244 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892801F26117CFC4573C8CF1 /* AppSettings.swift */; };
+		B316FA763D45CB3769705666 /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF423A83D8102B97ACBE67 /* OpenAIClient.swift */; };
+		B66A64FB07EDA965C9F7F1D4 /* CallNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77386C56508AD800A5E9B976 /* CallNotesUITests.swift */; };
+		BA638A1C6AF7AEBC7E454E0E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F351FBF4E55A1D09CC28A450 /* SwiftUI.framework */; };
+		BFFD61A1783A967727EEDAF3 /* CallNotesWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA3B66BC9155A3CF0EC0ABB /* CallNotesWidgets.swift */; };
+		C2B67ED45135D25AD367BE99 /* ActionItemExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E301D4397E9B34CD06E7FB12 /* ActionItemExtractionService.swift */; };
+		C4E500CA17C160CDD3A76CDB /* CallModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF54D6D94C1F6622A351953 /* CallModels.swift */; };
+		D54613E4415E9485B91D82AC /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B21152CD03C8D045280C282 /* PersistenceService.swift */; };
+		D5848207BAB100A4938163C6 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC8E5C3DC307502728332CA /* AppIntents.framework */; };
+		D5E86D6A8F5262F650CEB418 /* ActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E365FDDD6D2FAD3F51AFA29 /* ActivityKit.framework */; };
+		E0651DAB1B8E452C038C9653 /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF423A83D8102B97ACBE67 /* OpenAIClient.swift */; };
+		F4C298DFD7A80DFE9A0EA66E /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD57FE611B1380A4F4E338 /* ServiceProtocols.swift */; };
+		F908F09DF7B7807799EA09D1 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00B829143849C09C3DC827 /* ReminderService.swift */; };
+		F90F2E85C4AF59E75C077B2B /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE9F43F161DE331F737039 /* RecordingViewModel.swift */; };
+		FD2BD952BE43DF14574E3F99 /* CallNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB26F40FEA193F879A7EB6F /* CallNotesApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15939DD18D7B751276976C40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B125D49F7DC5136221A7A624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58AE6D8148ADEF339924019A;
+			remoteInfo = FollowUpsWidgetsExtension;
+		};
+		5A98244BF58EBE5C2FF5F052 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B125D49F7DC5136221A7A624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEF573FB39423EB1A3F189DF;
+			remoteInfo = FollowUps;
+		};
+		A9AC40013013E07386688A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B125D49F7DC5136221A7A624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEF573FB39423EB1A3F189DF;
+			remoteInfo = FollowUps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BAE347CA1D865397F2D8552F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				51D9F4BC8478D0C68468A34A /* FollowUpsWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0CA3B66BC9155A3CF0EC0ABB /* CallNotesWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNotesWidgets.swift; sourceTree = "<group>"; };
+		24D75C66DA5F9DCFE164F58E /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		2E00B829143849C09C3DC827 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
+		2E365FDDD6D2FAD3F51AFA29 /* ActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActivityKit.framework; path = System/Library/Frameworks/ActivityKit.framework; sourceTree = SDKROOT; };
+		2F4A11A28F05C369F2F077A0 /* SessionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsListView.swift; sourceTree = "<group>"; };
+		4E5FBF203C15A924C8C43961 /* CallNotesIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNotesIntents.swift; sourceTree = "<group>"; };
+		4E9658D08EA621FA713F3818 /* FollowUps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowUps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBF423A83D8102B97ACBE67 /* OpenAIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClient.swift; sourceTree = "<group>"; };
+		6D862B2BF4488B56B03F2432 /* BackgroundTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskService.swift; sourceTree = "<group>"; };
+		7546A2C18F6FF67006A5B937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77386C56508AD800A5E9B976 /* CallNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNotesUITests.swift; sourceTree = "<group>"; };
+		7B21152CD03C8D045280C282 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		7DA6A881D995DCE43C445251 /* FollowUpsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowUpsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		892801F26117CFC4573C8CF1 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		8B517317EFC6151DE9196365 /* ActionItemExtractionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemExtractionServiceTests.swift; sourceTree = "<group>"; };
+		8BAB68BB3FC256195896BCAB /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
+		8BAE95755DBBD8AFF986B942 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		8ECE9F43F161DE331F737039 /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
+		8FB26F40FEA193F879A7EB6F /* CallNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNotesApp.swift; sourceTree = "<group>"; };
+		938EBAADCF6EB58958C6FD67 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
+		965EB7A3D61D27CB89CDB05B /* RecordingLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingLiveActivity.swift; sourceTree = "<group>"; };
+		A5BDEBBBBD83D22BF6D5EBE1 /* TranscriptionMergeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionMergeTests.swift; sourceTree = "<group>"; };
+		A646770497CEDF4DF7DA5273 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		ACBD57FE611B1380A4F4E338 /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
+		BBA7599ABB04522D5CAC5710 /* CompletionNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionNotificationService.swift; sourceTree = "<group>"; };
+		BFF54D6D94C1F6622A351953 /* CallModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallModels.swift; sourceTree = "<group>"; };
+		D425634517978CA6286DDF77 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D4B51DECB9891D07AB8EECE3 /* FollowUpsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowUpsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8890F32A3CEEF2065D4D87C /* SummaryReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryReviewView.swift; sourceTree = "<group>"; };
+		E2F21DF1CB8E7624F0DF86CA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E301D4397E9B34CD06E7FB12 /* ActionItemExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemExtractionService.swift; sourceTree = "<group>"; };
+		E790E2A3A29F77D1EAB8687E /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		E7DAFA83D0818EC8F2644446 /* FollowUpsWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FollowUpsWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8C72FB68853A6900324F17C /* RecordHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHomeView.swift; sourceTree = "<group>"; };
+		EBC8E5C3DC307502728332CA /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
+		F351FBF4E55A1D09CC28A450 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A673AC02C1902B9B28E17EFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5E86D6A8F5262F650CEB418 /* ActivityKit.framework in Frameworks */,
+				96ED43BDFBE6D33ADF7363BF /* WidgetKit.framework in Frameworks */,
+				BA638A1C6AF7AEBC7E454E0E /* SwiftUI.framework in Frameworks */,
+				D5848207BAB100A4938163C6 /* AppIntents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1278506FB948195DB6C6F754 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B441B0AC43613D765BE05343 /* Recording */,
+				9FB74AA585FB6C575D36D5F6 /* Sessions */,
+				B0131935B6077E0938234776 /* Settings */,
+				92A532154E3E4F4DA3DCBD84 /* Summary */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2BA34CE70C3CE7129B5283CE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				77386C56508AD800A5E9B976 /* CallNotesUITests.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4A2CBECB211D4BF8B4815F65 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2BA34CE70C3CE7129B5283CE /* UI */,
+				CA0CC03722B918A767ABD37C /* Unit */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		5B7E5FDAA88414695B66AD60 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7546A2C18F6FF67006A5B937 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FE8B0F4FB29EAAFA15396D9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E301D4397E9B34CD06E7FB12 /* ActionItemExtractionService.swift */,
+				8BAB68BB3FC256195896BCAB /* AudioCaptureService.swift */,
+				6D862B2BF4488B56B03F2432 /* BackgroundTaskService.swift */,
+				BBA7599ABB04522D5CAC5710 /* CompletionNotificationService.swift */,
+				6CBF423A83D8102B97ACBE67 /* OpenAIClient.swift */,
+				7B21152CD03C8D045280C282 /* PersistenceService.swift */,
+				2E00B829143849C09C3DC827 /* ReminderService.swift */,
+				ACBD57FE611B1380A4F4E338 /* ServiceProtocols.swift */,
+				938EBAADCF6EB58958C6FD67 /* TranscriptionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		60279B16D1DF3FD9C916B595 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				4E5FBF203C15A924C8C43961 /* CallNotesIntents.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		7D8A68CD6E0EE460496FB975 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				0CA3B66BC9155A3CF0EC0ABB /* CallNotesWidgets.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		831CBA4026E5D73815762635 /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				965EB7A3D61D27CB89CDB05B /* RecordingLiveActivity.swift */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
+		92A532154E3E4F4DA3DCBD84 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				D8890F32A3CEEF2065D4D87C /* SummaryReviewView.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		965BC59167950A4D5046507D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				892801F26117CFC4573C8CF1 /* AppSettings.swift */,
+				24D75C66DA5F9DCFE164F58E /* AppViewModel.swift */,
+				8FB26F40FEA193F879A7EB6F /* CallNotesApp.swift */,
+				E790E2A3A29F77D1EAB8687E /* DependencyContainer.swift */,
+				8BAE95755DBBD8AFF986B942 /* RootTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9883B84448D74A1BF8D9D886 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E365FDDD6D2FAD3F51AFA29 /* ActivityKit.framework */,
+				EBC8E5C3DC307502728332CA /* AppIntents.framework */,
+				F351FBF4E55A1D09CC28A450 /* SwiftUI.framework */,
+				D425634517978CA6286DDF77 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FB74AA585FB6C575D36D5F6 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				2F4A11A28F05C369F2F077A0 /* SessionsListView.swift */,
+			);
+			path = Sessions;
+			sourceTree = "<group>";
+		};
+		B0131935B6077E0938234776 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E2F21DF1CB8E7624F0DF86CA /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B441B0AC43613D765BE05343 /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				E8C72FB68853A6900324F17C /* RecordHomeView.swift */,
+				8ECE9F43F161DE331F737039 /* RecordingViewModel.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		C6EFA064665EB1BCEDCFE242 = {
+			isa = PBXGroup;
+			children = (
+				965BC59167950A4D5046507D /* App */,
+				1278506FB948195DB6C6F754 /* Features */,
+				831CBA4026E5D73815762635 /* LiveActivity */,
+				E9550A90C91D97DC58DC2689 /* Models */,
+				5B7E5FDAA88414695B66AD60 /* Resources */,
+				5FE8B0F4FB29EAAFA15396D9 /* Services */,
+				60279B16D1DF3FD9C916B595 /* Shortcuts */,
+				4A2CBECB211D4BF8B4815F65 /* Tests */,
+				7D8A68CD6E0EE460496FB975 /* Widgets */,
+				9883B84448D74A1BF8D9D886 /* Frameworks */,
+				EA49299231443DB85C747D3F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA0CC03722B918A767ABD37C /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				8B517317EFC6151DE9196365 /* ActionItemExtractionServiceTests.swift */,
+				A646770497CEDF4DF7DA5273 /* TestSupport.swift */,
+				A5BDEBBBBD83D22BF6D5EBE1 /* TranscriptionMergeTests.swift */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		E9550A90C91D97DC58DC2689 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFF54D6D94C1F6622A351953 /* CallModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EA49299231443DB85C747D3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E9658D08EA621FA713F3818 /* FollowUps.app */,
+				7DA6A881D995DCE43C445251 /* FollowUpsUITests.xctest */,
+				D4B51DECB9891D07AB8EECE3 /* FollowUpsUnitTests.xctest */,
+				E7DAFA83D0818EC8F2644446 /* FollowUpsWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4856D568703810A76E81381B /* FollowUpsUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB922D164AE2104A86C7D5B6 /* Build configuration list for PBXNativeTarget "FollowUpsUnitTests" */;
+			buildPhases = (
+				C60747DF9AE2938365D35D07 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				999D477CB3B28CBABA420973 /* PBXTargetDependency */,
+			);
+			name = FollowUpsUnitTests;
+			packageProductDependencies = (
+			);
+			productName = FollowUpsUnitTests;
+			productReference = D4B51DECB9891D07AB8EECE3 /* FollowUpsUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		58AE6D8148ADEF339924019A /* FollowUpsWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 153C0CA6F4F1D04F65A379DE /* Build configuration list for PBXNativeTarget "FollowUpsWidgetsExtension" */;
+			buildPhases = (
+				C2BB2285B0D628353C399946 /* Sources */,
+				A673AC02C1902B9B28E17EFE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FollowUpsWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = FollowUpsWidgetsExtension;
+			productReference = E7DAFA83D0818EC8F2644446 /* FollowUpsWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AEF573FB39423EB1A3F189DF /* FollowUps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 627EC4B7F1744BDB70237E83 /* Build configuration list for PBXNativeTarget "FollowUps" */;
+			buildPhases = (
+				162C42B70B6AD46B04710A1E /* Sources */,
+				5AC45CB22A9F32DF0CE1225F /* Resources */,
+				BAE347CA1D865397F2D8552F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEE4F25C1D2400F60C56A90 /* PBXTargetDependency */,
+			);
+			name = FollowUps;
+			packageProductDependencies = (
+			);
+			productName = FollowUps;
+			productReference = 4E9658D08EA621FA713F3818 /* FollowUps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF11ED00C7A02676274BA620 /* FollowUpsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A7D9D2EB66F2309F3D92752 /* Build configuration list for PBXNativeTarget "FollowUpsUITests" */;
+			buildPhases = (
+				27D055C77C8882A5199CDEDE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CC82F9383AB9CF4A0601BB0 /* PBXTargetDependency */,
+			);
+			name = FollowUpsUITests;
+			packageProductDependencies = (
+			);
+			productName = FollowUpsUITests;
+			productReference = 7DA6A881D995DCE43C445251 /* FollowUpsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B125D49F7DC5136221A7A624 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					4856D568703810A76E81381B = {
+						ProvisioningStyle = Automatic;
+					};
+					58AE6D8148ADEF339924019A = {
+						ProvisioningStyle = Automatic;
+					};
+					AEF573FB39423EB1A3F189DF = {
+						ProvisioningStyle = Automatic;
+					};
+					CF11ED00C7A02676274BA620 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = AEF573FB39423EB1A3F189DF;
+					};
+				};
+			};
+			buildConfigurationList = 17DC68EEF25F77882898FB13 /* Build configuration list for PBXProject "FollowUps" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C6EFA064665EB1BCEDCFE242;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EA49299231443DB85C747D3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEF573FB39423EB1A3F189DF /* FollowUps */,
+				CF11ED00C7A02676274BA620 /* FollowUpsUITests */,
+				4856D568703810A76E81381B /* FollowUpsUnitTests */,
+				58AE6D8148ADEF339924019A /* FollowUpsWidgetsExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AC45CB22A9F32DF0CE1225F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42E974679DDFBCE62FF0EDD2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		162C42B70B6AD46B04710A1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F39A66CAB778B45F2756179 /* ActionItemExtractionService.swift in Sources */,
+				B225B45A8EE9742D68C44244 /* AppSettings.swift in Sources */,
+				1F78E247955F276064F64F4A /* AppViewModel.swift in Sources */,
+				462FE4E886590CAA0F537E05 /* AudioCaptureService.swift in Sources */,
+				930A93B0988E0BB064A450F5 /* BackgroundTaskService.swift in Sources */,
+				7E7242FF0890F5BECF7C914C /* CallModels.swift in Sources */,
+				FD2BD952BE43DF14574E3F99 /* CallNotesApp.swift in Sources */,
+				63B560840012B598BDAD3FF9 /* CallNotesIntents.swift in Sources */,
+				82DACD7FC84A8F1E3181E7BE /* CompletionNotificationService.swift in Sources */,
+				4E3FF17F884E164EDE3E705E /* DependencyContainer.swift in Sources */,
+				B316FA763D45CB3769705666 /* OpenAIClient.swift in Sources */,
+				D54613E4415E9485B91D82AC /* PersistenceService.swift in Sources */,
+				89E297D2AAC056DA6399F2C3 /* RecordHomeView.swift in Sources */,
+				F90F2E85C4AF59E75C077B2B /* RecordingViewModel.swift in Sources */,
+				8E1F3BAF3821433040CFD7B2 /* ReminderService.swift in Sources */,
+				0C80C30C51FEDB681F9297AD /* RootTabView.swift in Sources */,
+				F4C298DFD7A80DFE9A0EA66E /* ServiceProtocols.swift in Sources */,
+				13E7FEC34BDEEF46F0AA09D4 /* SessionsListView.swift in Sources */,
+				16235EEE385806F4E29E4F2C /* SettingsView.swift in Sources */,
+				91301E9ECE2452A680486744 /* SummaryReviewView.swift in Sources */,
+				8403CA2190E89383890BD4FF /* TranscriptionService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27D055C77C8882A5199CDEDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B66A64FB07EDA965C9F7F1D4 /* CallNotesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2BB2285B0D628353C399946 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6396BC4942F40141D71AF00C /* CallModels.swift in Sources */,
+				734A26F35136A1231F031829 /* CallNotesIntents.swift in Sources */,
+				BFFD61A1783A967727EEDAF3 /* CallNotesWidgets.swift in Sources */,
+				AD840A1B08F40EB2D2521021 /* RecordingLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C60747DF9AE2938365D35D07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2B67ED45135D25AD367BE99 /* ActionItemExtractionService.swift in Sources */,
+				B20C1F23ACC4DCE7B8C3FDCE /* ActionItemExtractionServiceTests.swift in Sources */,
+				6C30E960C11A0E9EEF21A4ED /* AppSettings.swift in Sources */,
+				5A02BEED583FFF6708085E27 /* AudioCaptureService.swift in Sources */,
+				3B473A36F0B7DC3AF92B4951 /* BackgroundTaskService.swift in Sources */,
+				C4E500CA17C160CDD3A76CDB /* CallModels.swift in Sources */,
+				13129D321E136C0313FA1C70 /* CompletionNotificationService.swift in Sources */,
+				E0651DAB1B8E452C038C9653 /* OpenAIClient.swift in Sources */,
+				3C1B9A9AF6243AFD82326EC1 /* PersistenceService.swift in Sources */,
+				F908F09DF7B7807799EA09D1 /* ReminderService.swift in Sources */,
+				9E18A16779CFB4EEFA42A2CC /* ServiceProtocols.swift in Sources */,
+				A5F5CF3B751311F4D237CC74 /* TestSupport.swift in Sources */,
+				95D0A0851DFA213BEAD2D772 /* TranscriptionMergeTests.swift in Sources */,
+				2F57DF13701132F443B6E2DA /* TranscriptionService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		999D477CB3B28CBABA420973 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEF573FB39423EB1A3F189DF /* FollowUps */;
+			targetProxy = A9AC40013013E07386688A66 /* PBXContainerItemProxy */;
+		};
+		9CC82F9383AB9CF4A0601BB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEF573FB39423EB1A3F189DF /* FollowUps */;
+			targetProxy = 5A98244BF58EBE5C2FF5F052 /* PBXContainerItemProxy */;
+		};
+		FEEE4F25C1D2400F60C56A90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58AE6D8148ADEF339924019A /* FollowUpsWidgetsExtension */;
+			targetProxy = 15939DD18D7B751276976C40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0336F0EC45B77C87E2AA9A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Release;
+		};
+		1E2E1290DBCCC6DEFAA04840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Debug;
+		};
+		4DD33713C674D59EB570F25D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FollowUps.app/FollowUps";
+			};
+			name = Release;
+		};
+		61C976E2BB302C59B544A57A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FollowUps.app/FollowUps";
+			};
+			name = Debug;
+		};
+		87F8D55E6153D87485964CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				INFOPLIST_FILE = "Resources/CallNotes-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FollowUps;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_NAME = FollowUps;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		91A2E5F4477FEC95B7AFB346 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				INFOPLIST_FILE = "Resources/CallNotesWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FollowUps Widgets";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.widgets;
+				PRODUCT_NAME = FollowUpsWidgets;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		937A6B8195D7630C3BAAD6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				INFOPLIST_FILE = "Resources/CallNotesWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FollowUps Widgets";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.widgets;
+				PRODUCT_NAME = FollowUpsWidgets;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D7C3FC3D54EBF5C5E08D4606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				INFOPLIST_FILE = "Resources/CallNotes-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FollowUps;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_NAME = FollowUps;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E8E7769D7CFCDD64767A83B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = FollowUps;
+			};
+			name = Release;
+		};
+		EEC6E5FD416400F87106A361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BB4MFJBDC7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasgregg.FollowUps.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = FollowUps;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		153C0CA6F4F1D04F65A379DE /* Build configuration list for PBXNativeTarget "FollowUpsWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91A2E5F4477FEC95B7AFB346 /* Debug */,
+				937A6B8195D7630C3BAAD6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		17DC68EEF25F77882898FB13 /* Build configuration list for PBXProject "FollowUps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E2E1290DBCCC6DEFAA04840 /* Debug */,
+				0336F0EC45B77C87E2AA9A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5A7D9D2EB66F2309F3D92752 /* Build configuration list for PBXNativeTarget "FollowUpsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC6E5FD416400F87106A361 /* Debug */,
+				E8E7769D7CFCDD64767A83B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		627EC4B7F1744BDB70237E83 /* Build configuration list for PBXNativeTarget "FollowUps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7C3FC3D54EBF5C5E08D4606 /* Debug */,
+				87F8D55E6153D87485964CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB922D164AE2104A86C7D5B6 /* Build configuration list for PBXNativeTarget "FollowUpsUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61C976E2BB302C59B544A57A /* Debug */,
+				4DD33713C674D59EB570F25D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B125D49F7DC5136221A7A624 /* Project object */;
+}

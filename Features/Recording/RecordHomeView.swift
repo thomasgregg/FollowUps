@@ -11,6 +11,7 @@ struct RecordHomeView: View {
                 } else if case .stopping = recordingViewModel.state {
                     VStack(spacing: 0) {
                         ProcessingRecordingCard()
+                            .padding(.horizontal, 16)
                         Spacer()
                     }
                 } else {
@@ -134,14 +135,12 @@ struct ProcessingRecordingCard: View {
         VStack(alignment: .leading, spacing: 0) {
             Label("Working on it", systemImage: "sparkles")
                 .font(.title3.weight(.semibold))
-
-            Spacer(minLength: 28)
+                .padding(.bottom, 34)
 
             AnimatedProcessingBar()
+                .padding(.bottom, 48)
 
-            Spacer(minLength: 28)
-
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: 24) {
                 ForEach(Array(recordingViewModel.processingSteps.enumerated()), id: \.offset) { index, step in
                     HStack(spacing: 14) {
                         ZStack {
@@ -165,15 +164,13 @@ struct ProcessingRecordingCard: View {
                     }
                 }
             }
-
-            Spacer(minLength: 20)
+            .padding(.bottom, 44)
 
             Text("You can leave the app. FollowUps keeps working in the background and will notify you when your tasks are ready.")
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
-
-            Spacer(minLength: 34)
+                .padding(.bottom, 36)
 
             Button {
                 recordingViewModel.abortProcessing()
@@ -187,9 +184,7 @@ struct ProcessingRecordingCard: View {
             .tint(.blue)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(minHeight: 620, alignment: .top)
-        .padding(24)
-        .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 24))
+        .padding(.top, 12)
     }
 
     private func color(for index: Int) -> Color {

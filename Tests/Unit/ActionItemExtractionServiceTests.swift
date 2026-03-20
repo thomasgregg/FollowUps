@@ -1,5 +1,5 @@
 import XCTest
-@testable import CallNotes
+@testable import FollowUps
 
 final class ActionItemExtractionServiceTests: XCTestCase {
     func testExtractActionItemsUsesOpenAIClientResult() async throws {

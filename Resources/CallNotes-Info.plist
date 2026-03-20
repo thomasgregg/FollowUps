@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.thomasgregg.CallNotes.postprocess</string>
-		<string>com.thomasgregg.CallNotes.cleanup</string>
+		<string>com.thomasgregg.FollowUps.postprocess</string>
+		<string>com.thomasgregg.FollowUps.cleanup</string>
 	</array>
-	<key>CFBundleDisplayName</key>
-	<string>FollowUps</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>FollowUps needs microphone access to record your calls and meetings when you tap the record button.</string>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>FollowUps needs Reminders access to create and update Apple Reminders for the tasks you choose.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.thomasgregg.CallNotes</string>
+			<string>com.thomasgregg.FollowUps</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>callnotes</string>
+				<string>followups</string>
 			</array>
 		</dict>
 	</array>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>FollowUps only records audio after you explicitly start a session.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>FollowUps does not use your photo library.</string>
-	<key>NSRemindersUsageDescription</key>
-	<string>FollowUps saves selected action items to Reminders only after you confirm.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>processing</string>
