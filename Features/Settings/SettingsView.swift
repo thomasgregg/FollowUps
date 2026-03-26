@@ -16,7 +16,9 @@ struct SettingsView: View {
                             .autocorrectionDisabled()
                     }
 
-                    Text("Audio is sent to OpenAI after recording stops so FollowUps can transcribe it and extract tasks.")
+                    Toggle("Allow sending recordings to OpenAI", isOn: $appViewModel.settings.cloudProcessingConsentGiven)
+
+                    Text("When enabled, FollowUps can send recording audio and transcript text to OpenAI after you stop recording. This is required for AI transcription and task extraction.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
@@ -77,6 +79,9 @@ struct SettingsView: View {
                 persistSettings()
             }
             .onChange(of: appViewModel.settings.openAIAPIKey) { _, _ in
+                persistSettings()
+            }
+            .onChange(of: appViewModel.settings.cloudProcessingConsentGiven) { _, _ in
                 persistSettings()
             }
             .onChange(of: appViewModel.settings.extractionStyle) { _, _ in

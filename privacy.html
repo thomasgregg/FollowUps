@@ -108,14 +108,14 @@
 
       <p>
         FollowUps helps you record a conversation, turn it into follow-up tasks, and optionally
-        create Apple Reminders from those tasks. This policy explains what data the app handles and
-        how it is used.
+        create Apple Reminders from those tasks. This policy explains what data is sent, who
+        receives it, when it is sent, and how user permission works.
       </p>
 
       <h2>How FollowUps works</h2>
       <ul>
         <li>FollowUps records audio only after you explicitly start recording.</li>
-        <li>When you stop recording, the app sends the saved audio to OpenAI for transcription and task extraction.</li>
+        <li>When you stop recording, FollowUps can send recording data to OpenAI for transcription and task extraction.</li>
         <li>The app stores sessions, transcripts, tasks, and recordings locally on your device unless you delete them.</li>
         <li>Apple Reminders are created only when you explicitly choose selected tasks and confirm.</li>
       </ul>
@@ -125,6 +125,35 @@
         <li><strong>Audio recordings</strong> you choose to capture.</li>
         <li><strong>Transcript and task content</strong> generated from that recording.</li>
         <li><strong>Reminder data</strong> only when you choose to create Apple Reminders.</li>
+      </ul>
+
+      <h2>Data sent to OpenAI</h2>
+      <p>
+        For AI processing, FollowUps sends:
+      </p>
+      <ul>
+        <li><strong>Recording audio</strong> from the session you just captured.</li>
+        <li><strong>Transcript text</strong> derived from that session and used to extract tasks and generate a headline.</li>
+      </ul>
+
+      <h2>Who receives data</h2>
+      <p>
+        AI processing data is sent to <strong>OpenAI</strong> through the OpenAI API.
+        FollowUps does not sell your data and does not use your data for advertising or tracking.
+      </p>
+
+      <h2>When data is sent</h2>
+      <p>
+        Data is sent only after <strong>you take action</strong>: you start recording, then stop recording,
+        and enable cloud processing permission in the app.
+      </p>
+
+      <h2>User permission and control</h2>
+      <ul>
+        <li>Microphone access is requested by iOS before recording.</li>
+        <li>Before cloud AI processing is used, FollowUps asks for explicit in-app permission.</li>
+        <li>You can turn cloud processing permission on or off at any time in Settings.</li>
+        <li>If cloud processing permission is off, AI transcription and task extraction do not run.</li>
       </ul>
 
       <h2>How we use data</h2>
@@ -137,17 +166,16 @@
 
       <h2>Third-party processing</h2>
       <p>
-        After recording stops, FollowUps sends the recorded audio and related transcript content to
-        OpenAI so OpenAI can transcribe the conversation and extract tasks. OpenAI processes this
+        OpenAI processes audio and transcript data so FollowUps can return transcription results and
+        extracted tasks. OpenAI processes this
         data according to its own policies. You can review OpenAI's privacy information at
         <a href="https://openai.com/policies/privacy-policy/">openai.com/policies/privacy-policy</a>.
       </p>
 
       <h2>Data sharing</h2>
       <p>
-        FollowUps does not sell your data and does not use your data for advertising or tracking.
-        Data is shared with OpenAI only to provide transcription and task extraction, and with
-        Apple Reminders only when you choose to create reminders.
+        Data is shared with OpenAI only to provide transcription and task extraction. Data is shared
+        with Apple Reminders only when you choose to create or update reminders.
       </p>
 
       <h2>Storage and deletion</h2>
@@ -178,8 +206,8 @@
 
       <h2>Contact</h2>
       <p>
-        For privacy questions about FollowUps, please use the project contact channel at
-        <a href="https://github.com/thomasgregg/FollowUps/issues">github.com/thomasgregg/FollowUps/issues</a>.
+        For privacy or support questions about FollowUps, please visit
+        <a href="https://thomasgregg.github.io/FollowUps/support.html">thomasgregg.github.io/FollowUps/support.html</a>.
       </p>
 
       <div class="note">

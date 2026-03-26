@@ -14,6 +14,7 @@ final class RecordingViewModel: NSObject, ObservableObject {
     @Published var reviewSession: CallSession?
     @Published var isShowingError = false
     @Published var errorMessage = ""
+    @Published var isShowingCloudConsent = false
 
     private let audioCaptureService: AudioCaptureServicing
     private let transcriptionService: TranscriptionServicing
@@ -80,6 +81,34 @@ final class RecordingViewModel: NSObject, ObservableObject {
             currentSession = nil
             present(error: error)
         }
+    }
+
+    func startRecordingFromPrimaryAction() {
+        guard state == .idle || state == .ready else { return }
+
+        guard appViewModel?.settings.cloudProcessingConsentGiven == true else {
+            isShowingCloudConsent = true
+            return
+        }
+
+        Task { await startRecording() }
+    }
+
+    func confirmCloudConsentAndStart() {
+        isShowingCloudConsent = false
+        guard let appViewModel else {
+            Task { await startRecording() }
+            return
+        }
+
+        var updatedSettings = appViewModel.settings
+        updatedSettings.cloudProcessingConsentGiven = true
+        appViewModel.save(settings: updatedSettings)
+        Task { await startRecording() }
+    }
+
+    func dismissCloudConsent() {
+        isShowingCloudConsent = false
     }
 
     func stopRecording() async {

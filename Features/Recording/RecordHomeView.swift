@@ -24,7 +24,7 @@ struct RecordHomeView: View {
                         detail: nil,
                         accessibilityLabel: "Start recording"
                     ) {
-                        Task { await recordingViewModel.startRecording() }
+                        recordingViewModel.startRecordingFromPrimaryAction()
                     }
                 }
             }
@@ -32,6 +32,16 @@ struct RecordHomeView: View {
             .padding()
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Record")
+            .alert("Send recordings to OpenAI?", isPresented: $recordingViewModel.isShowingCloudConsent) {
+                Button("Not now", role: .cancel) {
+                    recordingViewModel.dismissCloudConsent()
+                }
+                Button("Allow and continue") {
+                    recordingViewModel.confirmCloudConsentAndStart()
+                }
+            } message: {
+                Text("After you stop recording, FollowUps sends the recording audio and transcript text to OpenAI to extract tasks. Nothing is sent until you allow this.")
+            }
         }
     }
 }

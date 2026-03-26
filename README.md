@@ -133,11 +133,12 @@ FollowUps uses:
 ## Privacy
 
 - Recording starts only when you explicitly tap record.
-- Audio is stored locally first, then sent to OpenAI after recording stops.
+- Audio is stored locally first, then sent to OpenAI only after user action and cloud-processing consent.
 - No automatic interception of third-party call audio.
 - Reminders are created only after user review/confirmation.
 
 Privacy policy: [https://thomasgregg.github.io/FollowUps/privacy.html](https://thomasgregg.github.io/FollowUps/privacy.html)
+Support: [https://thomasgregg.github.io/FollowUps/support.html](https://thomasgregg.github.io/FollowUps/support.html)
 
 ## Testing
 
